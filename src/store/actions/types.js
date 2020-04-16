@@ -1,0 +1,8 @@
+export const SAVENOTE = "SAVENOTE"
+export const NOTEVISIBILE = "NOTEVISIBILE"
+export const SHOWNOTE = "SHOWNOTE"
+export const UPDATENOTE = "UPDATENOTE"
+export const DELETENOTE = "DELETENOTE"
+export const GETDATA = "GETDATA"
+export const ADDTOCOMPARE = "ADDTOCOMPARE"
+export const REMOVEFROMCOMPARE = "REMOVEFROMCOMPARE"

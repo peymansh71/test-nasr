@@ -1,0 +1,376 @@
+@import "./setting";
+@import "./mixins";
+
+/*Grid*/
+.input-en {
+  text-align: left;
+  direction: ltr;
+}
+.input-fa {
+  text-align: right;
+  direction: rtl;
+}
+%grid {
+  display: flex;
+}
+%grid-x {
+  display: flex;
+  flex-flow: row wrap;
+}
+%grid-x-no {
+  display: flex;
+  flex-flow: row nowrap;
+}
+%grid-x-no-re {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+}
+%grid-y {
+  display: flex;
+  flex-flow: column wrap;
+}
+%grid-y-no {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/*=====================================================*/
+/*Align*/
+%align-justify {
+  justify-content: space-between;
+}
+%align-around {
+  justify-content: space-around;
+}
+%align-right {
+  justify-content: flex-end;
+}
+%align-center {
+  justify-content: center;
+}
+%align-left {
+  justify-content: flex-start;
+}
+%align-top {
+  align-items: flex-start;
+}
+%align-self-top {
+  align-self: flex-start;
+}
+%align-bottom {
+  align-items: flex-end;
+}
+%align-self-bottom {
+  align-self: flex-end;
+}
+%align-middle {
+  align-items: center;
+}
+
+%align-center-middle {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+/*========================================*/
+/*Global*/
+/*========================================*/
+%container {
+  width: 95%;
+  position: relative;
+}
+.container {
+  width: 95%;
+  position: relative;
+}
+%w100 {
+  width: 100% !important;
+}
+/* /////////// Input /////////////// */
+input,
+textarea {
+  display: block;
+  background: none;
+  padding: 10px 10px 10px 5px;
+  border: none;
+  border-radius: 0;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Buttons */
+%btn {
+
+  height: 2em;
+  padding: 0 30px;
+  font-size: 14px;
+  border-radius: 0.25rem;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  order: 1px solid transparent;
+  line-height: 1.5;
+  @include Transition(0.15s , ease-in-out);
+}
+%btn span {
+  font-weight: normal;
+  font-size: 13px;
+}
+%btn-primary {
+  color: #fff;
+  background-color: #5867dd;
+  border-color: #5867dd;
+}
+%btn-primary:hover {
+  color: #fff;
+  background-color: #384ad7;
+  border-color: #2e40d4;
+}
+
+
+%btn-danger {
+  color: #fff;
+  background-color: #fd397a;
+  border-color: #fd397a;
+}
+%btn-danger:hover {
+  color: #fff;
+  background-color: #fd1361;
+  border-color: #fc0758;
+}
+%btn-warning {
+  color: #212529;
+  background-color: #ffb822;
+  border-color: #ffb822;
+}
+%btn-warning:hover {
+  color: #212529;
+  background-color: #fbaa00;
+  border-color: #eea200;
+}
+
+
+textarea {
+  width: 100%;
+  min-height: 34px;
+  font-size: 13px;
+  padding: 6px 8px;
+  line-height: 20px;
+  margin: 2px;
+  color: #000;
+  background-color:rgba(222, 225, 234, 0.5);
+  box-shadow: inset 0 1px 2px rgba(27, 31, 35, 0.075);
+  border-radius: 3px;
+  outline: none;
+  resize: none;
+  font-weight: 400;
+}
+
+input:focus,
+textarea:focus {
+  border: 1px solid #4b4c4e;
+}
+h4 {
+  display: block
+}
+
+%mb-1 {
+  margin-bottom: 1em !important;
+}
+%mb-2 {
+  margin-bottom: 2em !important;
+}
+%mb-3 {
+  margin-bottom: 3em !important;
+}
+%mt-1 {
+  margin-top: 1em !important;
+}
+%mt-2 {
+  margin-top: 2em !important;
+}
+%mt-3 {
+  margin-top: 3em !important;
+}
+%ml-1 {
+  margin-left: 1em !important;
+}
+%ml-2 {
+  margin-left: 2em !important;
+}
+%ml-3 {
+  margin-left: 3em !important;
+}
+%mr-1 {
+  margin-right: 1em !important;
+}
+%mr-2 {
+  margin-right: 2em !important;
+}
+%mr-3 {
+  margin-right: 3em !important;
+}
+%pl-1 {
+  padding-left: 1em;
+}
+%pr-1 {
+  padding-right: 1em;
+}
+
+%hidden {
+  display: none !important;
+}
+%full-screen {
+  width: 100%;
+  height: 100%;
+}
+// ===============================================
+.error-page {
+  height: 100%;
+  @extend %grid, %align-center-middle;
+  h4 {
+    font-size: 2em;
+  }
+}
+
+
+main {
+  @extend %grid, %align-center;
+  margin: 2em 0;
+  .item-container {
+    width: 60%;
+  }
+
+  .item-list {
+    @extend %w100 , %grid-x;
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    .item {
+      @extend %align-around;
+      width: 20%;
+      height: 20em;
+      color: #fff;
+      border-radius: 7px;
+      border: 1px solid lightgray;
+      margin: 7px;
+
+      &__image{
+        height: 80%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        
+
+        &-layer{
+          opacity: 0;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 2;
+          background-color: rgba(56, 243, 174, 0.76);
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          transition: all .3s ease-in;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          button{
+            border: 2px solid white;
+            cursor: pointer;
+            color: white;
+            padding: 10px 40px;
+            transition: all .2s ease-in;
+
+            &:hover{
+              color: rgb(56, 243, 174);
+              background-color: white;
+              transition: all .2s ease-in;
+              
+            }
+          }
+
+          &:hover{
+            opacity: 1;
+            transition: all .3s ease-in;
+          }
+
+        }
+      
+      }
+
+      &__desc{
+        margin-top: 20px;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+
+        > div:first-child{
+          display: inline-grid;
+
+          span:first-child{
+            font-weight: 500;
+            font-size: 14px;
+            color: #404040;
+            padding-bottom: 5px;
+          }
+
+          span:last-child{
+            font-weight: lighter;
+            color: gray;
+            font-size: 12px;
+          }
+        }
+
+        > div:last-child{
+          span{
+            color : green;
+          }
+        }
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 21px;
+      }
+      
+    }
+  }
+
+  .comapring{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    text-align: center;
+    border: 1px solid gray;
+    margin: auto;
+  
+    > div:first-child{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      @extend %align-center-middle;
+      background-color: lightgoldenrodyellow
+    }
+  
+    > div:last-child{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: lightpink
+    }
+  }
+}
+
+
+
